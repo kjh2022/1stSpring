@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.java.emp.mapper.EmpMapper">
+	<!-- 자바와 db가 가지고 있는 vo이름이 매칭이 안될때 resultMap으로 매칭되게 처리해줌 -->
+	<resultMap type="EmpVO" id="empInfo">
+		<id column="employee_id" property="employeeId"/>
+		<result column="last_name" property="lastName"/>
+	</resultMap>
+	<!-- 전체조회 -->
+	<select id="getEmpList" resultType="EmpVO">
+		SELECT * FROM EMPLOYEES
+	</select>
+	<!-- 단건조회 -->
+	<select id="getEmp" parameterType="EmpVO" resultType="EmpVO">
+		SELECT *
+		FROM employees
+		WHERE employee_id = ${employeeId}
+	</select>
+	<insert id="insertEmp" parameterType="EmpVO">
+	<!-- keyProperty는 select문 안에서 처리된 결과에 대해 이름을 붙여줌
+	예시) SELECT MAX(employee_id)+1 FROM employees -->
+	<!-- resultType은 int double string같은 일반적인 타입만 처리함 -->
+	<!-- order은 BEFORE||AFTER 두개의 값만 들어가며 보통 비포가 많이 쓰임 -->
+	<selectKey keyProperty="employeeId" resultType="Integer" order="BEFORE">
+		SELECT MAX(employee_id)+1
+		FROM employees
+	</selectKey>
+		INSERT INTO employees
+				(employee_id,
+				 first_name,
+				 last_name,
+				 email,
+				 hire_date,
+				 job_id,
+				 salary)
+		VALUES( #{employeeId},
+				#{firstName},
+				#{lastName},
+				#{email},
+				sysdate,
+				#{jobId},
+				#{salary})
+	</insert>
+	<!-- 수정)연봉 10%인상 -->
+	<update id="updateEmpSalary" parameterType="Integer">
+		UPDATE employees
+		SET salary = salary * 1.1
+		WHERE employee_id = #{eId}
+	</update>
+	<!-- 삭제 -->
+	<delete id="deleteEmpInfo" parameterType="int">
+		DELETE FROM employees
+		WHERE employee_id = #{employeeId}
+	</delete>
+	
+	<!-- 수정 : 사원 정보를 넘겨받아서 이름, 성, 이메일을 수정할 수 잇는 메소드 -->
+	<update id="updateEmpInfo" parameterType="EmpVO">
+	UPDATE employees
+		<set>
+			<if test="firstName !=null and !firstName.equals('')">
+		 		
+			</if>
+			<if test="lastName !=null and !lastName.equals('')">
+				last_name = #{lastName},
+			</if>
+			<if test="email !=null and !email.equals('')">
+				email = #{email},
+			</if>
+		</set>
+			WHERE employee_id = #{employeeId}
+	</update>
+</mapper>
