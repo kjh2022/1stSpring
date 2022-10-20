@@ -64,7 +64,7 @@ public class EmpMapperTest {
 			int result = mapper.deleteEmpInfo(207);
 			assertEquals(result, 1);
 		}
-		@Test
+		//@Test
 		public void updateEmpInfoTest() {
 			EmpVO empVO = new EmpVO();
 			empVO.setEmployeeId(207);
@@ -75,5 +75,14 @@ public class EmpMapperTest {
 			int result = mapper.updateEmpInfo(empVO);
 			assertEquals(result, 1);
 		}
+		@Test
+		   public void empSelectOne() {
+		      EmpVO empVO = new EmpVO();
+		      empVO.setFirstName("Steven");
+		      EmpVO selected = mapper.getEmp(empVO);
+		      assertNotNull(selected);
+		      
+		      System.out.println("★★★★★★★★★★ empSelectOne 끝 ★★★★★★★★★★");
+		   }
 	}
 
