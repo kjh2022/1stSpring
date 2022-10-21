@@ -46,6 +46,8 @@
 			</tr>
 		</table>
 		<button type="submit">연봉 인상</button>
+		<button type="submit">정보 수정</button>
+		
 	</form>
 </body>
 </html>
