@@ -27,7 +27,7 @@ public class FreeBoardController {
 	}
 	//등록 - DB에 insert진행하는 컨트롤러
 	@PostMapping("insert")
-	public String insertFerrBoard(FBVO fbVO, RedirectAttributes ratt) {
+	public String insertFreeBoard(FBVO fbVO, RedirectAttributes ratt) {
 		Map<String, Object> result = fbService.insertBoardInfo(fbVO);
 		ratt.addFlashAttribute("msg", result.get("result") + "건이 등록되었습니다.");
 		return "redirect:list";
