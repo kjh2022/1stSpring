@@ -19,4 +19,14 @@ public class BookServiceImpl implements BookService {
 		return mapper.getBookList();
 	}
 
+	@Override
+	public BookVO selectBookNo() {
+		return mapper.getBookNo();
+	}
+
+	@Override
+	public int insertBookInfo(BookVO bookVO) {
+		return mapper.insertBook(bookVO);
+	}
+
 }

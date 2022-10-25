@@ -16,4 +16,8 @@ public class BookVO {
 	private int bookPrice;
 	private String bookPublisher;
 	private String bookInfo;
+	
+	//대여관련 필드로 AS로 사용할 컬럼명(필드)을 따로 추가해도됨
+	private int totalPrice;
+	private int rentalCount;
 }

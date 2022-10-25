@@ -29,7 +29,7 @@
 					<!-- 
 					<td><img src="${pageContext.request.contextPath}/resources/images/${bookInfo.bookCovering}"></td>
 					 -->
-					 <td><img src="<c:url value='resources/images/${bookInfo.covering}' />"></td>
+					 <td><img src="<c:url value='resources/images/${bookInfo.bookCovering}' />" style="width:200px"></td>
 					<td><fmt:formatDate value="${bookInfo.bookDate}" pattern="yyyy년 MM월 dd일" /></td>
 					<td><fmt:formatNumber value="${bookInfo.bookPrice}" ></fmt:formatNumber></td>
 					<td>${bookInfo.bookPublisher}</td>

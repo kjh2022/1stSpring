@@ -71,17 +71,26 @@
 							aria-label="Bootstrap">
 							<use xlink:href="#bootstrap" /></svg>
 					</a>
-
 					<ul
 						class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-						<li><a href="${pageContext.request.contextPath}" class="nav-link text-secondary"> <svg
+				<!-- 메뉴 추가하는 자리 -->
+						<li><a href="${pageContext.request.contextPath}/bookinsert" class="nav-link text-secondary"> <svg
 									class="bi d-block mx-auto mb-1" width="24" height="24">
-									<use xlink:href="#home" /></svg> Home
+									<use xlink:href="#home" /></svg> 도서 등록
 						</a></li>
 						<li><a href="${pageContext.request.contextPath}/booklist" class="nav-link text-white"> <svg
 									class="bi d-block mx-auto mb-1" width="24" height="24">
-									<use xlink:href="#speedometer2" /></svg> 책 목록
+									<use xlink:href="#speedometer2" /></svg> 도서 목록 조회 / 수정 
 						</a></li>
+						<li><a href="${pageContext.request.contextPath}" class="nav-link text-secondary"> <svg
+									class="bi d-block mx-auto mb-1" width="24" height="24">
+									<use xlink:href="#home" /></svg> 대여 현황 조회
+						</a></li>						
+						<li><a href="${pageContext.request.contextPath}" class="nav-link text-secondary"> <svg
+									class="bi d-block mx-auto mb-1" width="24" height="24">
+									<use xlink:href="#home" /></svg> 홈으로
+						</a></li>						
+
 						<li><a href="${pageContext.request.contextPath}/mainlist" class="nav-link text-white"> <svg
 									class="bi d-block mx-auto mb-1" width="24" height="24">
 									<use xlink:href="#speedometer2" /></svg> 메인-전체회원 조회
