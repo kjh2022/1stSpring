@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+ <configuration>
+ 	<settings>
+ 		<setting name="mapUnderscoreToCamelCase" value="true"/>
+ 		<setting name="jdbcTypeForNull" value="NULL"/>
+ 	</settings>
+ 	
+ 	<typeAliases>
+ 	<!-- 별칭 설정 -->
+ 	<!-- mapper패키지에서 bookVO사용을 위한 별칭 등록 -->
+ 	<package name="com.yedam.java.book.service"/>
+ 	<package name="com.yedam.java.main.service"/>
+ 	</typeAliases>
+ 	
+ 	<typeHandlers>
+ 		<typeHandler javaType="java.sql.Date" handler="org.apache.ibatis.type.DateTypeHandler"/>
+ 	</typeHandlers>
+ 	
+ </configuration>

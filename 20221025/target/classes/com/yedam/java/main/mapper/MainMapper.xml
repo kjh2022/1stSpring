@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.java.main.mapper.MainMapper">
+	<!-- 전체조회-메인페이지 -->
+	<select id="getMainList" resultType="MainVO">
+		SELECT user_id, user_name, user_date, user_phone, user_email
+		FROM users
+	</select>
+	<!-- 관리자 페이지에서 유저 정보 확인,
+	관리자 페이지로 이동 시 아이디와 비밀번호를 이용해서 권한을 확인해야한다. -->
+	<select id="getAdminList">
+		SELECT user_id, user_name, user_date
+		FROM users
+		WHERE user_type = '0'
+		AND user_id = #{userId}
+		AND user_password = #{userPassword}
+	</select>
+	<!-- 회원가입(등록) -->
+	<insert id="insertMember" parameterType="MainVO">
+		INSERT INTO users(userId
+						 ,userName
+						 ,userPassword
+						 ,userNic
+						 ,userDate
+						 ,userPhone
+						 ,userEmail
+						 ,userType)
+				   VALUES(
+				   		<if test="userId !=null and !userId.equals('')">
+				   		  #{userId}
+				   		</if>
+				   		<if test="userName !=null and userName('')">
+				   		 ,#{userName}
+				   		</if>
+				   		<if test="userPassword !=null and userPassword('')">
+				   		 ,#{userPassword}
+				   		</if>
+				   		<if test="userNic !=null and userNic('')">
+				   		 ,#{userNic}
+				   		</if>
+				   		 ,sysdate
+				   		 ,#{userPhone}
+				   		 ,#{userEmail}
+				   		 <if test="userType !=null and userType('')">
+				   		 ,#{userType}
+				   		 </if>
+				   		 )
+	</insert>
+</mapper>
