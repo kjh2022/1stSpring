@@ -5,12 +5,13 @@
  
  <configuration>
  	<settings>
+ 	<!-- 테이블의 컬럼(대소문 구문X)을 자바의 필드(대소문 구분O)로 바꿀때 규칙을 매핑시켜줌 -->
  		<setting name="mapUnderscoreToCamelCase" value="true"/>
+ 		<!-- JAVA의 null을 어떤식으로 처리할 것인지 묻는것 -->
  		<setting name="jdbcTypeForNull" value="NULL"/>
  	</settings>
- 	
  	<typeAliases>
- 	<!-- 별칭 설정 -->
+ 	<!-- 별칭 설정 1기능 추가마다 1별칭 추가 필요 -->
  	<!-- mapper패키지에서 bookVO사용을 위한 별칭 등록 -->
  	<package name="com.yedam.java.book.service"/>
  	<package name="com.yedam.java.main.service"/>
