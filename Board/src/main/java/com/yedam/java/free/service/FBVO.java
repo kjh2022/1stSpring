@@ -17,5 +17,5 @@ public class FBVO {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedate;//게시판 수정일
 	private String image;	//게시판 첨부파일
-	
+	String username;
 }
